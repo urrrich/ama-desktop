@@ -11,7 +11,7 @@ exports.default = async function notarizing(context) {
 
   return await notarize({
     tool: "notarytool",
-    appBundleId: "com.floatmiracle.askmanyai.desktop",
+    appBundleId: "com.floatmiracle.askmanyai",
     appPath: `${appOutDir}/${appName}.app`,
     appleId: "zhangyiming@floatmiracle.com",
     appleIdPassword: "yorf-tmvc-kcpf-bgcn",
