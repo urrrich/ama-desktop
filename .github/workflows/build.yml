@@ -58,7 +58,7 @@ jobs:
       - name: Build & release app
 
         run: |
-          npm run build -- --log-level debug
+          npm run build
 
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
