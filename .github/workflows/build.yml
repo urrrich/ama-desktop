@@ -71,4 +71,5 @@ jobs:
         # 使用预制action：上传文件，可以将执行路径打包成zip上传
         uses: actions/upload-artifact@v4
         with:
+          name: ${{ matrix.os }}
           path: dist/*
