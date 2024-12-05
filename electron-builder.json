@@ -20,6 +20,7 @@
     ]
   },
   "win": {
+    "sign": null,
     "publisherName": "Floatmiracle, Inc.",
     "target": [
       { "target": "nsis" },

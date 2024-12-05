@@ -9,9 +9,9 @@
   },
   "scripts": {
     "dev": "electron . --disable-acceleration",
-    "build": "electron-builder",
-    "build:win": "electron-builder --win",
-    "build:mac": "electron-builder --mac",
+    "build": "electron-builder --publish always",
+    "build:win": "electron-builder --win --publish always",
+    "build:mac": "electron-builder --mac --publish always",
     "build:linux": "electron-builder --linux"
   },
   "author": {
