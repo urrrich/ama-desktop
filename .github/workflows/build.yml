@@ -66,3 +66,9 @@ jobs:
           XCODE_APP_LOADER_PASSWORD: ${{ secrets.XCODE_APP_LOADER_PASSWORD }}
           BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
           P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+
+      - name: Upload File
+        # 使用预制action：上传文件，可以将执行路径打包成zip上传
+        uses: actions/upload-artifact@v2
+        with:
+          path: dist/*

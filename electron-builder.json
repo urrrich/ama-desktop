@@ -14,7 +14,10 @@
     "gatekeeperAssess": false,
     "entitlements": "build/entitlements.mac.plist",
     "entitlementsInherit": "build/entitlements.mac.plist",
-    "target": [{ "target": "zip" }, { "target": "dmg" }]
+    "target": [
+      { "target": "zip", "arch": ["universal"] },
+      { "target": "dmg", "arch": ["universal"] }
+    ]
   },
   "win": {
     "publisherName": "Floatmiracle, Inc.",
@@ -38,7 +41,7 @@
     "createDesktopShortcut": true
   },
   "portable": {
-    "artifactName": "${productName}-${version}-portable.${ext}"
+    "artifactName": "${productName}-portable-${version}.${ext}"
   },
   "linux": {
     "target": ["snap"]
