@@ -1,0 +1,3 @@
+provider: generic
+url: https://ama-download.floatai.cn/askmanyai/desktop/
+updaterCacheDirName: askmanyai-dev-updater

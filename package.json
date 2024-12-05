@@ -1,0 +1,33 @@
+{
+  "name": "AskManyAI",
+  "version": "0.1.0",
+  "description": "desktop application for AskManyAI",
+  "exports": "./src/main.js",
+  "main": "src/main.js",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "dev": "electron . --disable-acceleration",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux"
+  },
+  "author": {
+    "name": "AskManyAI",
+    "url": "https://askmanyai.cn/"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "electron": "22.3.0",
+    "electron-builder": "23.6.0",
+    "@electron/fuses": "^1.8.0",
+    "@electron/notarize": "^2.4.0"
+  },
+  "dependencies": {
+    "electron-updater": "^6.3.9",
+    "electron-log": "^5.2.3",
+    "electron-progressbar": "^2.2.1"
+  }
+}
