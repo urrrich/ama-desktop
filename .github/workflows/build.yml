@@ -1,68 +1,68 @@
 # build.yml
- 
+
 # Workflow's name
- 
+
 name: Auto Build
- 
+
 # Workflow's trigger
- 
+
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - release
- 
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
 env:
-  ELECTRON_OUTPUT_PATH: ./dist
-  CSC_LINK: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
-  CSC_KEY_PASSWORD: ${{ secrets.P12_PASSWORD }}
- 
+  ELECTRON_OUTPUT_PATH: ./dist
+  CSC_LINK: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+  CSC_KEY_PASSWORD: ${{ secrets.P12_PASSWORD }}
+
 # Workflow's jobs
 jobs:
-  # job's id
-  release:
-    # job's name
-    name: build and release electron app
-    
-    # the type of machine to run the job on
-    runs-on: ${{ matrix.os }}
- 
-    # create a build matrix for jobs
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, macos-11, windows-latest]
- 
-    # create steps
-    steps:
-      # step1: check out repository
-      - name: Check out git repository
-        uses: actions/checkout@v2
- 
-      # step2: install node env
-      - name: Install Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20.x'
- 
-      - name: Install system deps
-        if: matrix.os == 'ubuntu-latest'
-        run: |
-          sudo apt-get install --no-install-recommends -y icnsutils graphicsmagick xz-utils
-          
-      # step3: yarn
-      - name: npm install
-        run: |
-          npm install
- 
-      - name: Build & release app
- 
-        run: |
-          npm run build
- 
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          XCODE_APP_LOADER_EMAIL: ${{ secrets.XCODE_APP_LOADER_EMAIL }}
-          XCODE_APP_LOADER_PASSWORD: ${{ secrets.XCODE_APP_LOADER_PASSWORD }}
-          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
-          P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+  # job's id
+  release:
+    # job's name
+    name: build and release electron app
+
+    # the type of machine to run the job on
+    runs-on: ${{ matrix.os }}
+
+    # create a build matrix for jobs
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-11, windows-latest]
+
+    # create steps
+    steps:
+      # step1: check out repository
+      - name: Check out git repository
+        uses: actions/checkout@v2
+
+      # step2: install node env
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20.x"
+
+      - name: Install system deps
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get install --no-install-recommends -y icnsutils graphicsmagick xz-utils
+
+      # step3: yarn
+      - name: npm install
+        run: |
+          npm install
+
+      - name: Build & release app
+
+        run: |
+          npm run build
+
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          XCODE_APP_LOADER_EMAIL: ${{ secrets.XCODE_APP_LOADER_EMAIL }}
+          XCODE_APP_LOADER_PASSWORD: ${{ secrets.XCODE_APP_LOADER_PASSWORD }}
+          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+          P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
