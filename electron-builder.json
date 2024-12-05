@@ -21,7 +21,9 @@
   },
   "win": {
     "sign": null,
-    "signtoolOptions": null,
+    "signtoolOptions": {
+      "sign": null
+    },
     "publisherName": "Floatmiracle, Inc.",
     "target": [
       { "target": "nsis" },
