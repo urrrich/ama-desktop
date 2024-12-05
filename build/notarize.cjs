@@ -13,8 +13,8 @@ exports.default = async function notarizing(context) {
     tool: "notarytool",
     appBundleId: "com.floatmiracle.askmanyai.desktop",
     appPath: `${appOutDir}/${appName}.app`,
-    appleId: process.env.APPLEID,
-    appleIdPassword: process.env.APPLEIDPASS,
-    teamId: process.env.APPLE_TEAM_ID,
+    appleId: "zhangyiming@floatmiracle.com",
+    appleIdPassword: "yorf-tmvc-kcpf-bgcn",
+    teamId: "SK8V5TAN28",
   });
 };
