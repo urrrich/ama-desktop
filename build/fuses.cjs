@@ -2,7 +2,7 @@
 const path = require("path");
 const { flipFuses, FuseVersion, FuseV1Options } = require("@electron/fuses");
 const builder = require("electron-builder");
-
+//
 async function addElectronFuses(context) {
   const {
     appOutDir,
