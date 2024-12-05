@@ -74,5 +74,6 @@ jobs:
           name: ${{ matrix.os }}
           path: |
             dist/*
+            !dist/mac/
             !dist/mac-arm64/
             !dist/win-unpacked/
